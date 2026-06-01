@@ -97,6 +97,15 @@ div.stButton > button:hover {
     font-size: 15px;
     margin-top: 30px;
 }
+/* Hide Streamlit Header */
+header[data-testid="stHeader"] {
+    display: none;
+}
+
+/* Remove top spacing left after hiding header */
+.block-container {
+    padding-top: 1rem;
+}
 
 </style>
 """, unsafe_allow_html=True)
