@@ -114,7 +114,7 @@ st.markdown(
 st.markdown("""
 <div style='text-align:center;
 font-size:18px;
-margin-bottom:10px;
+margin-bottom:5px;
 color:#5d4037;'>
 
 AI-powered academic performance prediction
