@@ -106,6 +106,25 @@ header[data-testid="stHeader"] {
 .block-container {
     padding-top: 1rem;
 }
+/* Metric Labels */
+[data-testid="stMetricLabel"] {
+    color: #5d4037 !important;
+    font-weight: 600;
+}
+
+/* Metric Values */
+[data-testid="stMetricValue"] {
+    color: #6d4c41 !important;
+    font-weight: bold;
+}
+
+/* Metric Containers */
+[data-testid="metric-container"] {
+    background-color: #fffaf3;
+    border: 1px solid #d7ccc8;
+    padding: 10px;
+    border-radius: 10px;
+}
 
 </style>
 """, unsafe_allow_html=True)
