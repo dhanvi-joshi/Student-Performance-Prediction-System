@@ -4,6 +4,7 @@ import joblib
 import pandas as pd
 
 # PAGE CONFIG
+st.set_page_config( page_title="Student Performance Predictor", page_icon="🎓", layout="centered" )
 with st.sidebar:
     st.title("🎓 Project Info")
 
@@ -121,10 +122,6 @@ using Machine Learning techniques.
 
 </div>
 """, unsafe_allow_html=True)
-
-# SECTION
-st.markdown("---")
-st.subheader("📘 Academic Information")
 
 # INPUTS
 
