@@ -86,7 +86,7 @@ div.stButton > button:hover {
 
 /* MAIN CONTAINERS */
 .block-container {
-    padding-top: 2rem;
+    padding-top: 1rem;
     padding-bottom: 2rem;
 }
 
@@ -123,10 +123,9 @@ using Machine Learning techniques.
 </div>
 """, unsafe_allow_html=True)
 
-# INPUTS
-
-st.markdown("---")
 st.subheader("📘 Academic Information")
+
+# INPUTS
 
 col1, col2 = st.columns(2)
 
