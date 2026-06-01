@@ -300,24 +300,24 @@ if st.button("🚀 Predict Performance"):
     "Poor": "#dc2626"
 }
 
-st.markdown(
-    f"""
-    <div style="
-        background:{color_map[result]};
-        padding:18px;
-        border-radius:12px;
-        text-align:center;
-        color:white;
-        font-size:26px;
-        font-weight:bold;
-        margin-top:20px;
-        margin-bottom:20px;
-    ">
-        🎯 Predicted Performance: {result}
-    </div>
-    """,
-    unsafe_allow_html=True
-)
+    st.markdown(
+        f"""
+        <div style="
+            background:{color_map[result]};
+            padding:18px;
+            border-radius:12px;
+            text-align:center;
+            color:white;
+            font-size:26px;
+            font-weight:bold;
+            margin-top:20px;
+            margin-bottom:20px;
+        ">
+            🎯 Predicted Performance: {result}
+        </div>
+        """,
+        unsafe_allow_html=True
+    )
 
     # RECOMMENDATIONS
 
