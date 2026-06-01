@@ -10,6 +10,26 @@ st.set_page_config(
     layout="centered"
 )
 
+with st.sidebar:
+    st.title("🎓 Project Info")
+
+    st.markdown("""
+    **Student Performance Prediction System**
+
+    Machine Learning based academic
+    performance prediction application.
+
+    **Algorithms Tested**
+    - Logistic Regression
+    - Decision Tree
+    - Random Forest
+
+    **Best Model**
+    - Decision Tree (89.01%)
+
+    **Developer**
+    - Dhanvi Joshi
+    """)
 # CUSTOM CSS
 st.markdown("""
 <style>
@@ -114,59 +134,82 @@ st.subheader("📘 Academic Information")
 
 # INPUTS
 
-StudyHours = st.slider("Study Hours", 0, 12, 4)
+st.markdown("---")
+st.subheader("📘 Academic Information")
 
-Attendance = st.slider("Attendance (%)", 0, 100, 75)
+col1, col2 = st.columns(2)
 
-Resources = st.slider("Learning Resources", 0, 10, 5)
+with col1:
+    StudyHours = st.slider("Study Hours", 0, 12, 4)
 
-extra_option = st.selectbox(
-    "Extracurricular Participation",
-    ["No", "Yes"]
-)
-Extracurricular = 1 if extra_option == "Yes" else 0
+    Attendance = st.slider(
+        "Attendance (%)",
+        0,
+        100,
+        75
+    )
 
-Motivation = st.slider("Motivation Level", 0, 10, 5)
+    Resources = st.slider(
+        "Learning Resources",
+        0,
+        10,
+        5
+    )
 
-internet_option = st.selectbox(
-    "Internet Access",
-    ["No", "Yes"]
-)
-Internet = 1 if internet_option == "Yes" else 0
+    extra_option = st.selectbox(
+        "Extracurricular Participation",
+        ["No", "Yes"]
+    )
+    Extracurricular = 1 if extra_option == "Yes" else 0
 
-OnlineCourses = st.slider(
-    "Online Courses Completed",
-    0,
-    20,
-    5
-)
+    Motivation = st.slider(
+        "Motivation Level",
+        0,
+        10,
+        5
+    )
 
-Discussions = st.slider(
-    "Discussion Participation",
-    0,
-    20,
-    5
-)
+with col2:
 
-AssignmentCompletion = st.slider(
-    "Assignment Completion (%)",
-    0,
-    100,
-    70
-)
+    internet_option = st.selectbox(
+        "Internet Access",
+        ["No", "Yes"]
+    )
+    Internet = 1 if internet_option == "Yes" else 0
 
-edutech_option = st.selectbox(
-    "Use of Educational Technology",
-    ["No", "Yes"]
-)
-EduTech = 1 if edutech_option == "Yes" else 0
+    OnlineCourses = st.slider(
+        "Online Courses Completed",
+        0,
+        20,
+        5
+    )
 
-StressLevel = st.slider(
-    "Stress Level",
-    0,
-    10,
-    5
-)
+    Discussions = st.slider(
+        "Discussion Participation",
+        0,
+        20,
+        5
+    )
+
+    AssignmentCompletion = st.slider(
+        "Assignment Completion (%)",
+        0,
+        100,
+        70
+    )
+
+    edutech_option = st.selectbox(
+        "Use of Educational Technology",
+        ["No", "Yes"]
+    )
+    EduTech = 1 if edutech_option == "Yes" else 0
+
+    StressLevel = st.slider(
+        "Stress Level",
+        0,
+        10,
+        5
+    )
 
 # INPUT ARRAY
 input_data = np.array([[
@@ -231,23 +274,50 @@ if st.button("🚀 Predict Performance"):
 
     result_color = result_colors[result]
 
+    col1, col2, col3 = st.columns(3)
+
+    col1.metric(
+        "Study Hours",
+        StudyHours
+    )
+    
+    col2.metric(
+        "Attendance",
+        f"{Attendance}%"
+    )
+    
+    col3.metric(
+        "Stress Level",
+        StressLevel
+    )
+
     # RESULT BOX
 
-    st.markdown(f"""
+    color_map = {
+    "Excellent": "#16a34a",
+    "Good": "#2563eb",
+    "Average": "#d97706",
+    "Poor": "#dc2626"
+}
+
+st.markdown(
+    f"""
     <div style="
-    padding:25px;
-    border-radius:15px;
-    background-color:{result_color};
-    color:white;
-    font-size:30px;
-    font-weight:bold;
-    text-align:center;
-    margin-top:20px;
-    margin-bottom:20px;
+        background:{color_map[result]};
+        padding:18px;
+        border-radius:12px;
+        text-align:center;
+        color:white;
+        font-size:26px;
+        font-weight:bold;
+        margin-top:20px;
+        margin-bottom:20px;
     ">
-    🎯 Predicted Performance: {result}
+        🎯 Predicted Performance: {result}
     </div>
-    """, unsafe_allow_html=True)
+    """,
+    unsafe_allow_html=True
+)
 
     # RECOMMENDATIONS
 
